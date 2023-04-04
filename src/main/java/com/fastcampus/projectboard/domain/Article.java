@@ -18,7 +18,6 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
 })
-@EntityListeners(AuditingEntityListener.class)
 
 @Entity
 public class Article extends AuditingFields {
@@ -42,6 +41,7 @@ public class Article extends AuditingFields {
 
     private Article(UserAccount userAccount, String title, String content, String hashtag) {
         this.userAccount = userAccount;
+        this.title = title;
         this.content = content;
         this.hashtag = hashtag;
     }
